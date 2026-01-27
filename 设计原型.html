@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI设计原型</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f2f5;
+            padding: 40px;
+        }
+
+        .prototype-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .prototype-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .prototype-title h1 {
+            font-size: 36px;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+        }
+
+        .prototype-title p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .device-section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            color: #1a1a2e;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .screen-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .screen-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .screen-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .screen-preview {
+            padding: 20px;
+            background: #fafafa;
+        }
+
+        .screen-info {
+            padding: 20px;
+            background: white;
+            border-top: 1px solid #e8ecf4;
+        }
+
+        .screen-info h3 {
+            font-size: 18px;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .screen-info ul {
+            list-style: none;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .screen-info li {
+            margin-bottom: 5px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .screen-info li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* 登录页面样式 */
+        .login-screen {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 16px;
+            padding: 40px;
+            min-height: 400px;
+        }
+
+        .login-box {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        .login-screen h2 {
+            text-align: center;
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        .form-field {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 14px;
+            background: #fafbfc;
+        }
+
+        .checkbox-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #e1e5e9;
+            border-radius: 5px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+        }
+
+        .checkbox::after {
+            content: "✓";
+            position: absolute;
+            left: 4px;
+            top: -2px;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        /* 首页样式 */
+        .home-screen {
+            background: #f5f7fa;
+            border-radius: 16px;
+            min-height: 400px;
+            overflow: hidden;
+        }
+
+        .home-header {
+            background: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .home-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        .logout-btn {
+            padding: 8px 16px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+
+        .tab-nav {
+            display: flex;
+            gap: 10px;
+            padding: 20px;
+            background: #f5f7fa;
+        }
+
+        .tab-item {
+            flex: 1;
+            padding: 14px;
+            background: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #666;
+            text-align: center;
+        }
+
+        .tab-item.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .tab-content {
+            padding: 20px;
+            background: white;
+            margin: 0 20px 20px;
+            border-radius: 15px;
+            min-height: 200px;
+        }
+
+        .tab-content h3 {
+            font-size: 20px;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .tab-content p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .card-grid {
+            display: grid;
+            gap: 15px;
+        }
+
+        .content-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border: 1px solid #e8ecf4;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .card-text h4 {
+            font-size: 15px;
+            color: #1a1a2e;
+            margin-bottom: 5px;
+        }
+
+        .card-text p {
+            font-size: 13px;
+            color: #999;
+            margin: 0;
+        }
+
+        /* 移动端样式 */
+        .mobile-frame {
+            width: 375px;
+            margin: 0 auto;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 8px solid #1a1a2e;
+        }
+
+        .mobile-login-screen {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px 20px;
+            min-height: 500px;
+        }
+
+        .mobile-login-box {
+            background: white;
+            border-radius: 20px;
+            padding: 30px 25px;
+        }
+
+        .mobile-login-screen h2 {
+            text-align: center;
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 25px;
+        }
+
+        .mobile-home-screen {
+            background: #f5f7fa;
+            min-height: 500px;
+            padding-top: 60px;
+        }
+
+        .mobile-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 12px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .menu-icon {
+            width: 30px;
+            height: 30px;
+            background: #f0f0f0;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-tab-nav {
+            display: flex;
+            gap: 8px;
+            padding: 15px;
+        }
+
+        .mobile-tab-item {
+            flex: 1;
+            padding: 12px;
+            background: white;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #666;
+            text-align: center;
+        }
+
+        .mobile-tab-item.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .mobile-tab-content {
+            padding: 15px;
+            background: white;
+            margin: 0 15px 15px;
+            border-radius: 12px;
+        }
+
+        .design-specs {
+            margin-top: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .specs-title {
+            font-size: 24px;
+            color: #1a1a2e;
+            margin-bottom: 20px;
+        }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .spec-item {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        .spec-item h4 {
+            font-size: 16px;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .spec-item p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .color-palette {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .color-swatch {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: white;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="prototype-container">
+        <div class="prototype-title">
+            <h1>UI 设计原型文档</h1>
+            <p>包含Web端和移动端的完整界面设计规范</p>
+        </div>
+
+        <!-- Web端设计 -->
+        <div class="device-section">
+            <h2 class="section-title">Web端设计</h2>
+            <div class="screen-grid">
+                <!-- 登录页面 -->
+                <div class="screen-card">
+                    <div class="screen-header">登录页面 - Web端</div>
+                    <div class="screen-preview">
+                        <div class="login-screen">
+                            <div class="login-box">
+                                <h2>欢迎登录</h2>
+                                <div class="form-field">
+                                    <label class="form-label">用户名</label>
+                                    <input type="text" class="form-input" placeholder="请输入用户名">
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label">密码</label>
+                                    <input type="password" class="form-input" placeholder="请输入密码">
+                                </div>
+                                <div class="checkbox-row">
+                                    <div class="checkbox"></div>
+                                    <span>记住密码</span>
+                                </div>
+                                <button class="login-btn">登录</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-info">
+                        <h3>设计要点</h3>
+                        <ul>
+                            <li>居中布局，最大宽度420px</li>
+                            <li>渐变背景色 #667eea → #764ba2</li>
+                            <li>圆角卡片设计，阴影效果</li>
+                            <li>输入框聚焦时高亮</li>
+                            <li>记住密码勾选框样式</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 首页 项目 -->
+                <div class="screen-card">
+                    <div class="screen-header">首页 - 项目 (Web端)</div>
+                    <div class="screen-preview">
+                        <div class="login-screen">
+                            <div class="login-box">
+                                <h2>欢迎登录</h2>
+                                <div class="form-field">
+                                    <label class="form-label">用户名</label>
+                                    <input type="text" class="form-input" placeholder="请输入用户名">
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label">密码</label>
+                                    <input type="password" class="form-input" placeholder="请输入密码">
+                                </div>
+                                <div class="checkbox-row">
+                                    <div class="checkbox"></div>
+                                    <span>记住密码</span>
+                                </div>
+                                <button class="login-btn">登录</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-info">
+                        <h3>设计要点</h3>
+                        <ul>
+                            <li>居中布局，最大宽度420px</li>
+                            <li>渐变背景色 #667eea → #764ba2</li>
+                            <li>圆角卡片设计，阴影效果</li>
+                            <li>输入框聚焦时高亮</li>
+                            <li>记住密码勾选框样式</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 首页 项目 -->
+                <div class="screen-card">
+                    <div class="screen-header">首页 - 项目 (Web端)</div>
+                    <div class="screen-preview">
+                        <div class="home-screen">
+                            <div class="home-header">
+                                <div class="home-title">首页</div>
+                                <button class="logout-btn">退出</button>
+                            </div>
+                            <div class="tab-nav">
+                                <button class="tab-item active">项目</button>
+                                <button class="tab-item">数据统计</button>
+                            </div>
+                            <div class="tab-content">
+                                <h3>项目</h3>
+                                <p>这是项目的内容区域</p>
+                                <div class="card-grid">
+                                    <div class="content-card">
+                                        <div class="card-icon">📋</div>
+                                        <div class="card-text">
+                                            <h4>项目 1</h4>
+                                            <p>描述文本</p>
+                                        </div>
+                                    </div>
+                                    <div class="content-card">
+                                        <div class="card-icon">📝</div>
+                                        <div class="card-text">
+                                            <h4>项目 2</h4>
+                                            <p>描述文本</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-info">
+                        <h3>设计要点</h3>
+                        <ul>
+                            <li>顶部固定导航栏</li>
+                            <li>横向Tab切换按钮</li>
+                            <li>卡片网格布局</li>
+                            <li>激活Tab高亮显示</li>
+                            <li>渐变图标背景</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 首页 Tab2 -->
+                <div class="screen-card">
+                    <div class="screen-header">首页 - 数据统计 (Web端)</div>
+                    <div class="screen-preview">
+                        <div class="home-screen">
+                            <div class="home-header">
+                                <div class="home-title">首页</div>
+                                <button class="logout-btn">退出</button>
+                            </div>
+                            <div class="tab-nav">
+                                <button class="tab-item">项目</button>
+                                <button class="tab-item active">数据统计</button>
+                            </div>
+                            <div class="tab-content">
+                                <h3>数据统计</h3>
+                                <p>这是数据统计的内容区域</p>
+                                <div class="card-grid">
+                                    <div class="content-card">
+                                        <div class="card-icon">📊</div>
+                                        <div class="card-text">
+                                            <h4>统计 1</h4>
+                                            <p>数据描述</p>
+                                        </div>
+                                    </div>
+                                    <div class="content-card">
+                                        <div class="card-icon">📈</div>
+                                        <div class="card-text">
+                                            <h4>统计 2</h4>
+                                            <p>数据描述</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-info">
+                        <h3>设计要点</h3>
+                        <ul>
+                            <li>Tab切换状态</li>
+                            <li>保持整体布局一致</li>
+                            <li>内容区域独立显示</li>
+                            <li>卡片图标区分内容类型</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 移动端设计 -->
+        <div class="device-section">
+            <h2 class="section-title">移动端设计</h2>
+            <div class="screen-grid">
+                <!-- 移动端登录 -->
+                <div class="screen-card">
+                    <div class="screen-header">登录页面 - 移动端</div>
+                    <div class="screen-preview">
+                        <div class="mobile-frame">
+                            <div class="mobile-login-screen">
+                                <div class="mobile-login-box">
+                                    <h2>欢迎登录</h2>
+                                    <div class="form-field">
+                                        <label class="form-label">用户名</label>
+                                        <input type="text" class="form-input" placeholder="请输入用户名">
+                                    </div>
+                                    <div class="form-field">
+                                        <label class="form-label">密码</label>
+                                        <input type="password" class="form-input" placeholder="请输入密码">
+                                    </div>
+                                    <div class="checkbox-row">
+                                        <div class="checkbox"></div>
+                                        <span>记住密码</span>
+                                    </div>
+                                    <button class="login-btn">登录</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-info">
+                        <h3>设计要点</h3>
+                        <ul>
+                            <li>宽度375px，模拟iPhone尺寸</li>
+                            <li>全屏渐变背景</li>
+                            <li>紧凑的表单布局</li>
+                            <li>适配移动端触控</li>
+                            <li>字体和间距适配小屏幕</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 移动端首页 项目 -->
+                <div class="screen-card">
+                    <div class="screen-header">首页 - 项目 (移动端)</div>
+                    <div class="screen-preview">
+                        <div class="mobile-frame">
+                            <div class="mobile-home-screen">
+                                <div class="mobile-header">
+                                    <div class="menu-icon">☰</div>
+                                    <div class="home-title">首页</div>
+                                    <button class="logout-btn">退出</button>
+                                </div>
+                            <div class="mobile-tab-nav">
+                                <button class="mobile-tab-item active">项目</button>
+                                <button class="mobile-tab-item">数据统计</button>
+                            </div>
+                            <div class="mobile-tab-content">
+                                <h3>项目</h3>
+                                <p>项目内容</p>
+                                    <div class="card-grid">
+                                        <div class="content-card">
+                                            <div class="card-icon">📋</div>
+                                            <div class="card-text">
+                                                <h4>项目 1</h4>
+                                                <p>描述</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-info">
+                        <h3>设计要点</h3>
+                        <ul>
+                            <li>顶部固定导航栏</li>
+                            <li>汉堡菜单图标</li>
+                            <li>Tab按钮间距更紧凑</li>
+                            <li>内容卡片单列布局</li>
+                            <li>字体尺寸缩小</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 移动端首页 Tab2 -->
+                <div class="screen-card">
+                    <div class="screen-header">首页 - 数据统计 (移动端)</div>
+                    <div class="screen-preview">
+                        <div class="mobile-frame">
+                            <div class="mobile-home-screen">
+                                <div class="mobile-header">
+                                    <div class="menu-icon">☰</div>
+                                    <div class="home-title">首页</div>
+                                    <button class="logout-btn">退出</button>
+                                </div>
+                                <div class="mobile-tab-nav">
+                                    <button class="mobile-tab-item">项目</button>
+                                    <button class="mobile-tab-item active">数据统计</button>
+                                </div>
+                                <div class="mobile-tab-content">
+                                    <h3>数据统计</h3>
+                                    <p>数据统计内容</p>
+                                    <div class="card-grid">
+                                        <div class="content-card">
+                                            <div class="card-icon">📊</div>
+                                            <div class="card-text">
+                                                <h4>统计 1</h4>
+                                                <p>数据</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-info">
+                        <h3>设计要点</h3>
+                        <ul>
+                            <li>Tab2激活状态</li>
+                            <li>保持布局一致性</li>
+                            <li>移动端手势友好</li>
+                            <li>可滑动区域设计</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 设计规范 -->
+        <div class="design-specs">
+            <h2 class="specs-title">设计规范</h2>
+            <div class="spec-grid">
+                <div class="spec-item">
+                    <h4>色彩规范</h4>
+                    <p>主色调使用紫色渐变，营造现代科技感</p>
+                    <div class="color-palette">
+                        <div class="color-swatch" style="background: #667eea">#667eea</div>
+                        <div class="color-swatch" style="background: #764ba2">#764ba2</div>
+                        <div class="color-swatch" style="background: #e74c3c">#e74c3c</div>
+                        <div class="color-swatch" style="background: #f5f7fa">#f5f7fa</div>
+                    </div>
+                </div>
+                <div class="spec-item">
+                    <h4>字体规范</h4>
+                    <p>Web端：标题24-32px，正文14-16px</p>
+                    <p>移动端：标题20-24px，正文13-14px</p>
+                </div>
+                <div class="spec-item">
+                    <h4>间距规范</h4>
+                    <p>Web端：卡片间距20px，内边距40px</p>
+                    <p>移动端：卡片间距15px，内边距15-20px</p>
+                </div>
+                <div class="spec-item">
+                    <h4>圆角规范</h4>
+                    <p>Web端：卡片15-20px，按钮10-12px</p>
+                    <p>移动端：卡片12-15px，按钮8-10px</p>
+                </div>
+                <div class="spec-item">
+                    <h4>交互规范</h4>
+                    <p>按钮悬停上移2-3px，Tab切换动画0.3s</p>
+                    <p>卡片悬停阴影增强，点击反馈</p>
+                </div>
+                <div class="spec-item">
+                    <h4>图标规范</h4>
+                    <p>使用Font Awesome 6.4</p>
+                    <p>图标尺寸：16-32px</p>
+                    <p>渐变背景白色图标</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
