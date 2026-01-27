@@ -2,4 +2,22 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- 主题色 -->
+    <color name="primary">#667eea</color>
+    <color name="primary_dark">#764ba2</color>
+    <color name="accent">#10B981</color>
+
+    <!-- 退出按钮颜色 -->
+    <color name="logout_button_color">#e74c3c</color>
+    <color name="logout_button_dark">#c0392b</color>
+
+    <!-- 背景色 -->
+    <color name="background">#f5f7fa</color>
+    <color name="card_background">#ffffff</color>
+
+    <!-- 文字颜色 -->
+    <color name="text_primary">#1a1a2e</color>
+    <color name="text_secondary">#666666</color>
+    <color name="text_hint">#999999</color>
 </resources>
