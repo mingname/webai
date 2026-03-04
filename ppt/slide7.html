@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #f5f5f5;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  padding: 20pt 40pt;
+}
+.header h1 {
+  font-size: 28pt;
+  margin: 0;
+  font-weight: bold;
+}
+.content {
+  padding: 25pt 40pt;
+  flex: 1;
+}
+.web-features {
+  background: #ffffff;
+  padding: 20pt;
+  border-radius: 12pt;
+  box-shadow: 0 4pt 12pt rgba(0,0,0,0.15);
+  margin-bottom: 15pt;
+}
+.feature-row {
+  display: flex;
+  gap: 20pt;
+  margin-bottom: 15pt;
+}
+.feature-card {
+  flex: 1;
+  background: #f8f9fa;
+  padding: 15pt;
+  border-radius: 8pt;
+  border-top: 4pt solid #667eea;
+}
+.feature-card h3 {
+  font-size: 15pt;
+  margin: 0 0 10pt 0;
+  color: #667eea;
+}
+.feature-card ul {
+  margin: 0;
+  padding-left: 18pt;
+  font-size: 12pt;
+  color: #333333;
+  line-height: 1.5;
+}
+.feature-card li {
+  margin-bottom: 4pt;
+}
+.screenshot-note {
+  background: #d1ecf1;
+  padding: 12pt 15pt;
+  border-radius: 8pt;
+  border-left: 4pt solid #17a2b8;
+}
+.screenshot-note p {
+  font-size: 13pt;
+  margin: 0;
+  color: #0c5460;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Web端功能实现</h1>
+</div>
+<div class="content">
+  <div class="web-features">
+    <div class="feature-row">
+      <div class="feature-card">
+        <h3>🔐 用户认证</h3>
+        <ul>
+          <li>登录页面（LoginView.vue）</li>
+          <li>注册页面（RegisterView.vue）</li>
+          <li>表单验证、密码加密</li>
+          <li>JWT Token认证</li>
+        </ul>
+      </div>
+      <div class="feature-card">
+        <h3>🏠 首页功能</h3>
+        <ul>
+          <li>Tab切换（项目/数据统计）</li>
+          <li>侧边导航栏</li>
+          <li>用户信息展示</li>
+          <li>响应式布局</li>
+        </ul>
+      </div>
+    </div>
+    <div class="feature-row">
+      <div class="feature-card" style="border-top-color: #764ba2;">
+        <h3>📡 数据交互</h3>
+        <ul>
+          <li>Axios HTTP客户端</li>
+          <li>API接口封装</li>
+          <li>请求拦截器</li>
+          <li>错误处理</li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-top-color: #764ba2;">
+        <h3>🎨 交互体验</h3>
+        <ul>
+          <li>过渡动画效果</li>
+          <li>加载状态提示</li>
+          <li>错误弹窗</li>
+          <li>记住密码</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="screenshot-note">
+    <p>📸 <strong>截图标注：</strong>LoginView.vue 和 HomeView.vue 实现了完整的登录和首页交互逻辑</p>
+  </div>
+</div>
+</body>
+</html>

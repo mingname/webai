@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #f5f5f5;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  padding: 20pt 40pt;
+}
+.header h1 {
+  font-size: 28pt;
+  margin: 0;
+  font-weight: bold;
+}
+.content {
+  padding: 25pt 40pt;
+  flex: 1;
+}
+.android-stack {
+  background: #ffffff;
+  padding: 20pt;
+  border-radius: 12pt;
+  box-shadow: 0 4pt 12pt rgba(0,0,0,0.15);
+  margin-bottom: 15pt;
+}
+.tech-grid {
+  display: flex;
+  gap: 15pt;
+  margin-bottom: 15pt;
+}
+.tech-item {
+  flex: 1;
+  background: linear-gradient(135deg, #3DDC84 0%, #28B463 100%);
+  padding: 15pt;
+  border-radius: 8pt;
+  border: 2pt solid #3DDC84;
+}
+.tech-item h3 {
+  font-size: 14pt;
+  margin: 0 0 8pt 0;
+  color: #ffffff;
+}
+.tech-item p {
+  font-size: 12pt;
+  margin: 0;
+  color: #ffffff;
+}
+.arch-info {
+  background: #f8f9fa;
+  padding: 15pt;
+  border-radius: 8pt;
+  border-left: 4pt solid #28B463;
+}
+.arch-info h3 {
+  font-size: 16pt;
+  margin: 0 0 10pt 0;
+  color: #28B463;
+}
+.arch-info ul {
+  margin: 0;
+  padding-left: 20pt;
+  font-size: 13pt;
+  color: #333333;
+  line-height: 1.6;
+}
+.arch-info li {
+  margin-bottom: 5pt;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>环节四：APP代码生成</h1>
+</div>
+<div class="content">
+  <div class="android-stack">
+    <div class="tech-grid">
+      <div class="tech-item">
+        <h3>🤖 Kotlin</h3>
+        <p>现代Android开发<br/>类型安全</p>
+      </div>
+      <div class="tech-item">
+        <h3>🏗️ MVVM</h3>
+        <p>架构模式<br/>分层设计</p>
+      </div>
+      <div class="tech-item">
+        <h3>📡 Retrofit</h3>
+        <p>网络请求<br/>REST API</p>
+      </div>
+      <div class="tech-item">
+        <h3>🗄️ LiveData</h3>
+        <p>数据观察<br/>生命周期感知</p>
+      </div>
+    </div>
+    <div class="arch-info">
+      <h3>📁 项目结构</h3>
+      <ul>
+        <li>ui/ - LoginActivity、HomeActivity等UI界面</li>
+        <li>repository/ - AuthRepository数据仓库层</li>
+        <li>network/ - NetworkConfig Retrofit配置</li>
+        <li>model/ - ApiModels数据模型</li>
+        <li>utils/ - TokenManager Token管理</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+</html>

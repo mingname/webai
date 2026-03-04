@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #f5f5f5;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  padding: 20pt 40pt;
+}
+.header h1 {
+  font-size: 28pt;
+  margin: 0;
+  font-weight: bold;
+}
+.content {
+  padding: 25pt 40pt;
+  flex: 1;
+}
+.design-specs {
+  background: #ffffff;
+  padding: 20pt;
+  border-radius: 12pt;
+  box-shadow: 0 4pt 12pt rgba(0,0,0,0.15);
+}
+.spec-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15pt;
+  margin-bottom: 15pt;
+}
+.spec-item {
+  flex: 1;
+  min-width: 200pt;
+  background: #f8f9fa;
+  padding: 15pt;
+  border-radius: 8pt;
+  border-top: 4pt solid #667eea;
+}
+.spec-item h3 {
+  font-size: 15pt;
+  margin: 0 0 10pt 0;
+  color: #667eea;
+}
+.spec-item p {
+  font-size: 12pt;
+  margin: 0;
+  color: #555555;
+  line-height: 1.4;
+}
+.color-box {
+  display: flex;
+  gap: 10pt;
+  margin-top: 10pt;
+}
+.color-dot {
+  width: 30pt;
+  height: 30pt;
+  border-radius: 50%;
+  border: 2pt solid #333;
+}
+.file-info {
+  background: #fff3cd;
+  padding: 12pt 15pt;
+  border-radius: 8pt;
+  border-left: 4pt solid #ffc107;
+}
+.file-info p {
+  font-size: 13pt;
+  margin: 0;
+  color: #856404;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>环节二：UI视觉设计规范</h1>
+</div>
+<div class="content">
+  <div class="design-specs">
+    <div class="spec-grid">
+      <div class="spec-item">
+        <h3>🎨 色彩方案</h3>
+        <p>主色调：紫色渐变系</p>
+        <div class="color-box">
+          <div class="color-dot" style="background: #667eea;"></div>
+          <div class="color-dot" style="background: #764ba2;"></div>
+          <div class="color-dot" style="background: #f5f7fa;"></div>
+        </div>
+      </div>
+      <div class="spec-item">
+        <h3>📏 尺寸规范</h3>
+        <p>Web端：卡片宽度420px<br/>移动端：宽度375px</p>
+      </div>
+      <div class="spec-item">
+        <h3>🔤 字体规范</h3>
+        <p>Web：标题24-32px<br/>移动端：标题20-24px</p>
+      </div>
+      <div class="spec-item" style="border-top-color: #764ba2;">
+        <h3>📐 间距与圆角</h3>
+        <p>卡片间距20px<br/>圆角8-12px</p>
+      </div>
+    </div>
+    <div class="file-info">
+      <p>📄 <strong>交付文件：</strong>设计原型.html - 包含完整的Web端和移动端设计规范</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

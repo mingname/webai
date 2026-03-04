@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品开发全流程 - UI设计管理系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', 'SimHei', Arial, sans-serif;
+            background: #f0f2f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .slide {
+            background: white;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .slide-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .slide-header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .slide-header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .slide-content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            color: #667eea;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .feature-card ul {
+            padding-left: 20px;
+            color: #333;
+        }
+
+        .feature-card li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .info-box {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin: 15px 0;
+        }
+
+        .info-box strong {
+            color: #856404;
+        }
+
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .tech-table th,
+        .tech-table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .tech-table th {
+            background: #667eea;
+            color: white;
+        }
+
+        .tech-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: #667eea;
+            border-radius: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 17px;
+            bottom: -20px;
+            width: 2px;
+            background: #667eea;
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #667eea;
+            color: white;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-right: 8px;
+        }
+
+        .file-path {
+            background: #d4edda;
+            color: #155724;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            word-break: break-all;
+            margin: 10px 0;
+        }
+
+        @media print {
+            .slide {
+                page-break-after: always;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 封面页 -->
+        <div class="slide">
+            <div class="slide-header" style="padding: 80px 30px;">
+                <h1 style="font-size: 48px; margin-bottom: 20px;">产品开发全流程</h1>
+                <p style="font-size: 24px;">从0到1的完整开发实践</p>
+                <div style="margin-top: 40px; padding: 15px 30px; background: rgba(255,255,255,0.2); border-radius: 10px; border: 2px solid rgba(255,255,255,0.4); display: inline-block;">
+                    UI设计管理系统
+                </div>
+            </div>
+        </div>
+
+        <!-- 目录页 -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1>核心开发环节</h1>
+            </div>
+            <div class="slide-content">
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>1. 原型设计</h3>
+                        <ul>
+                            <li>低保真原型 → 高保真交互原型</li>
+                            <li>快速验证需求</li>
+                            <li><strong>交付物：</strong>可交互HTML原型</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3>2. UI视觉设计</h3>
+                        <ul>
+                            <li>设计规范制定</li>
+                            <li>色彩方案、组件库建设</li>
+                            <li><strong>交付物：</strong>UI设计规范文档</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card" style="border-left-color: #764ba2;">
+                        <h3>3. Web代码生成</h3>
+                        <ul>
+                            <li>Vue 3 + Vite + Pinia技术栈</li>
+                            <li>响应式前端开发</li>
+                            <li><strong>交付物：</strong>完整Vue项目代码</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card" style="border-left-color: #764ba2;">
+                        <h3>4. APP代码生成</h3>
+                        <ul>
+                            <li>Kotlin + MVVM架构</li>
+                            <li>Android原生开发</li>
+                            <li><strong>交付物：</strong>完整Android项目</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 环节一：原型设计 -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1>环节一：原型设计</h1>
+            </div>
+            <div class="slide-content">
+                <div class="section">
+                    <h2 class="section-title">📋 低保真原型</h2>
+                    <ul style="line-height: 2;">
+                        <li>需求分析，确定核心功能模块</li>
+                        <li>线框图绘制，搭建页面框架</li>
+                        <li><span class="tag">交付物</span>线框图文档、功能清单</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">🎨 高保真交互原型</h2>
+                    <ul style="line-height: 2;">
+                        <li>基于线框图添加视觉元素和交互</li>
+                        <li>实现Tab切换、侧边导航等交互效果</li>
+                        <li><span class="tag">交付物</span>可交互HTML原型文件</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <p><strong>📸 截图标注：</strong>原型文件包含完整的登录和首页交互逻辑，可直接在浏览器中预览</p>
+                </div>
+
+                <div class="file-path">
+                    📄 文件位置：d:/uisheji/ui-原型.html
+                </div>
+            </div>
+        </div>
+
+        <!-- 环节二：UI视觉设计 -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1>环节二：UI视觉设计规范</h1>
+            </div>
+            <div class="slide-content">
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>🎨 色彩方案</h3>
+                        <p>主色调：紫色渐变系</p>
+                        <div style="display: flex; gap: 10px; margin-top: 10px;">
+                            <div style="width: 40px; height: 40px; background: #667eea; border-radius: 50%; border: 2px solid #333;"></div>
+                            <div style="width: 40px; height: 40px; background: #764ba2; border-radius: 50%; border: 2px solid #333;"></div>
+                            <div style="width: 40px; height: 40px; background: #f5f7fa; border-radius: 50%; border: 2px solid #333;"></div>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📏 尺寸规范</h3>
+                        <ul>
+                            <li>Web端：卡片宽度400px</li>
+                            <li>移动端：宽度375px</li>
+                            <li>响应式断点：768px / 1200px</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card" style="border-left-color: #764ba2;">
+                        <h3>🔤 字体规范</h3>
+                        <ul>
+                            <li>Web端：标题24-32px</li>
+                            <li>移动端：标题20-24px</li>
+                            <li>图标：Font Awesome 6.4</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card" style="border-left-color: #764ba2;">
+                        <h3>📐 间距与圆角</h3>
+                        <ul>
+                            <li>卡片间距：20px（Web）/ 15px（移动）</li>
+                            <li>圆角：15-20px</li>
+                            <li>按钮圆角：10-12px</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="file-path">
+                    📄 文件位置：d:/uisheji/设计原型.html
+                </div>
+            </div>
+        </div>
+
+        <!-- 环节三：Web代码生成 -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1>环节三：Web代码生成</h1>
+            </div>
+            <div class="slide-content">
+                <h2 class="section-title">技术栈</h2>
+                <table class="tech-table">
+                    <tr>
+                        <th>技术</th>
+                        <th>版本</th>
+                        <th>用途</th>
+                    </tr>
+                    <tr>
+                        <td>🖥️ Vue 3</td>
+                        <td>Composition API</td>
+                        <td>响应式框架</td>
+                    </tr>
+                    <tr>
+                        <td>⚡ Vite 5</td>
+                        <td>最新版</td>
+                        <td>快速构建</td>
+                    </tr>
+                    <tr>
+                        <td>📦 Pinia</td>
+                        <td>2.1</td>
+                        <td>状态管理</td>
+                    </tr>
+                    <tr>
+                        <td>🛣️ Vue Router</td>
+                        <td>4.2</td>
+                        <td>路由管理</td>
+                    </tr>
+                    <tr>
+                        <td>📡 Axios</td>
+                        <td>1.6</td>
+                        <td>HTTP请求</td>
+                    </tr>
+                </table>
+
+                <div class="section">
+                    <h2 class="section-title">📁 项目结构</h2>
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 13px;">
+                        src/<br>
+                        ├── views/ (LoginView.vue, HomeView.vue)<br>
+                        ├── api/ (login.js)<br>
+                        ├── stores/ (user.js)<br>
+                        ├── router/ (index.js)<br>
+                        └── App.vue
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 环节四：APP代码生成 -->
+        <div class="slide">
+            <div class="slide-header" style="background: linear-gradient(135deg, #3DDC84 0%, #28B463 100%);">
+                <h1>环节四：APP代码生成</h1>
+            </div>
+            <div class="slide-content">
+                <h2 class="section-title" style="border-color: #3DDC84; color: #3DDC84;">技术栈</h2>
+                <table class="tech-table">
+                    <tr>
+                        <th>技术</th>
+                        <th>版本</th>
+                        <th>用途</th>
+                    </tr>
+                    <tr>
+                        <td>🤖 Kotlin</td>
+                        <td>最新版</td>
+                        <td>现代Android开发</td>
+                    </tr>
+                    <tr>
+                        <td>🏗️ MVVM</td>
+                        <td>-</td>
+                        <td>架构模式</td>
+                    </tr>
+                    <tr>
+                        <td>📡 Retrofit</td>
+                        <td>2.9.0</td>
+                        <td>网络请求</td>
+                    </tr>
+                    <tr>
+                        <td>🗄️ LiveData</td>
+                        <td>AndroidX</td>
+                        <td>数据观察</td>
+                    </tr>
+                </table>
+
+                <div class="section">
+                    <h2 class="section-title" style="border-color: #3DDC84; color: #3DDC84;">📁 项目结构</h2>
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 13px;">
+                        com/htnova/aitest/<br>
+                        ├── ui/ (LoginActivity.kt, HomeActivity.kt)<br>
+                        ├── repository/ (AuthRepository.kt)<br>
+                        ├── network/ (NetworkConfig.kt)<br>
+                        ├── model/ (ApiModels.kt)<br>
+                        └── utils/ (TokenManager.kt)
+                    </div>
+                </div>
+
+                <div class="info-box" style="background: #d1ecf1; border-color: #17a2b8;">
+                    <p><strong>📡 API集成：</strong>http://115.190.154.26:3001/api/</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 项目成果总结 -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1>项目成果总结</h1>
+            </div>
+            <div class="slide-content">
+                <div class="feature-grid">
+                    <div class="feature-card" style="text-align: center;">
+                        <div style="font-size: 48px; font-weight: bold; color: #667eea;">4</div>
+                        <p style="margin-top: 10px;">核心环节</p>
+                    </div>
+                    <div class="feature-card" style="text-align: center;">
+                        <div style="font-size: 48px; font-weight: bold; color: #667eea;">2</div>
+                        <p style="margin-top: 10px;">平台支持</p>
+                    </div>
+                    <div class="feature-card" style="text-align: center; border-left-color: #764ba2;">
+                        <div style="font-size: 48px; font-weight: bold; color: #764ba2;">8+</div>
+                        <p style="margin-top: 10px;">核心功能</p>
+                    </div>
+                    <div class="feature-card" style="text-align: center; border-left-color: #764ba2;">
+                        <div style="font-size: 48px; font-weight: bold; color: #764ba2;">100%</div>
+                        <p style="margin-top: 10px;">代码可用</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">📅 开发时间线</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <strong>阶段一：</strong>需求分析 → 原型设计（1-2天）
+                        </div>
+                        <div class="timeline-item">
+                            <strong>阶段二：</strong>UI视觉设计规范制定（1天）
+                        </div>
+                        <div class="timeline-item">
+                            <strong>阶段三：</strong>Web端Vue 3开发（3-5天）
+                        </div>
+                        <div class="timeline-item">
+                            <strong>阶段四：</strong>Android端Kotlin开发（5-7天）
+                        </div>
+                        <div class="timeline-item">
+                            <strong>阶段五：</strong>测试联调与优化（2-3天）
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box" style="background: #d4edda; border-color: #28a745;">
+                    <p><strong>📊 总开发周期：</strong>约12-18天</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 交付物清单 -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1>交付物清单</h1>
+            </div>
+            <div class="slide-content">
+                <div class="section">
+                    <h2 class="section-title">1. 原型设计</h2>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">
+                        <div class="file-path">✅ ui-原型.html - 高保真交互原型</div>
+                        <div class="file-path" style="background: #d1ecf1;">✅ 设计原型.html - UI设计规范</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">2. Web端代码</h2>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">
+                        <div class="file-path" style="background: #f8d7da; color: #721c24;">✅ Vue 3完整项目代码</div>
+                        <div class="file-path" style="background: #f8d7da; color: #721c24;">✅ 登录、注册、首页页面</div>
+                        <div class="file-path" style="background: #f8d7da; color: #721c24;">✅ Pinia状态管理</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">3. Android端代码</h2>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">
+                        <div class="file-path" style="background: #fff3cd;">✅ Kotlin完整项目代码</div>
+                        <div class="file-path" style="background: #fff3cd;">✅ MVVM架构实现</div>
+                        <div class="file-path" style="background: #fff3cd;">✅ Retrofit网络请求</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">4. 文档</h2>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">
+                        <div class="file-path">✅ PRD.md - 产品需求文档</div>
+                        <div class="file-path">✅ VUE_使用说明.md - Vue使用说明</div>
+                        <div class="file-path">✅ ANDROID_README.md - Android说明</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #f5f5f5;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  padding: 25pt 40pt;
+}
+.header h1 {
+  font-size: 32pt;
+  margin: 0;
+  font-weight: bold;
+}
+.content {
+  padding: 30pt 40pt;
+  flex: 1;
+}
+.process-item {
+  background: #ffffff;
+  margin-bottom: 20pt;
+  padding: 20pt;
+  border-left: 8pt solid #667eea;
+  border-radius: 8pt;
+  box-shadow: 0 2pt 8pt rgba(0,0,0,0.1);
+}
+.process-item h2 {
+  font-size: 20pt;
+  margin: 0 0 10pt 0;
+  color: #667eea;
+}
+.process-item p {
+  font-size: 14pt;
+  margin: 0;
+  color: #333333;
+  line-height: 1.5;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>核心开发环节</h1>
+</div>
+<div class="content">
+  <div class="process-item">
+    <h2>1. 原型设计</h2>
+    <p>低保真原型 → 高保真交互原型，快速验证需求</p>
+  </div>
+  <div class="process-item">
+    <h2>2. UI视觉设计</h2>
+    <p>设计规范制定、色彩方案、组件库建设</p>
+  </div>
+  <div class="process-item">
+    <h2>3. Web代码生成</h2>
+    <p>Vue 3 + Vite + Pinia 技术栈，响应式前端开发</p>
+  </div>
+  <div class="process-item" style="border-left-color: #764ba2;">
+    <h2>4. APP代码生成</h2>
+    <p>Kotlin + MVVM架构，Android原生开发</p>
+  </div>
+</div>
+</body>
+</html>
